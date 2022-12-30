@@ -1,15 +1,20 @@
-package calculator.domain;
+package calculator.domain.calculator.delimiter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Delimiters {
-    private static final List<Delimiter> DEFAULT_DELIMITER = new ArrayList<>(Arrays.asList(new Delimiter(":"), new Delimiter(",")));
     private final List<Delimiter> delimiters;
 
+    private static final List<Delimiter> DEFAULT_DELIMITER = new ArrayList<>(Arrays.asList(new Delimiter(":"), new Delimiter(",")));
+
     public Delimiters() {
-        this.delimiters = DEFAULT_DELIMITER;
+        this(new ArrayList<>(DEFAULT_DELIMITER));
+    }
+
+    public Delimiters(List<Delimiter> delimiters) {
+        this.delimiters = delimiters;
     }
 
     public void add(Delimiter delimiter) {
@@ -25,4 +30,5 @@ public class Delimiters {
         stringBuilder.append(']');
         return stringBuilder.toString();
     }
+
 }
